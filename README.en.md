@@ -1,31 +1,34 @@
 # LFTR: Price Drop
 
-An optional addon. It does not touch GT++'s source — at load complete it rewrites a set of recipes on the GT++ **LFTR (Liquid Fluoride Thorium Reactor)** production line: build costs move from single-use alloys to mainline materials, the fuel chain gains a path that needs no Industrial Strength Hydrofluoric Acid, and fuel and blanket processing get faster.
+The GT++ LFTR is expensive to build, its fuel chain goes through Industrial Strength Hydrofluoric Acid, and its processing is slow. This mod rewrites part of that once the game has loaded: mainline materials for the casings and the controller, a fuel path that does not need Industrial HF, and fuel and blanket processing at double speed.
 
-> ⚠️ **Not Stargate-compliant.** Stargate eligibility requires a run without balance changes; this mod deliberately alters build costs and processing speed. Do not install it if you are running for Stargate or plan to.
->
-> Not affiliated with GTNH, GT++, or GT5U. The jar contains none of their code or assets; it only calls their recipe API at runtime.
+Optional. It applies when installed and changes nothing when it is not.
 
-**中文:** [README.md](README.md)
+## Read this first
+
+Do not install this if you are running for Stargate. Stargate requires an unmodified balance, and this mod changes balance on purpose.
+
+Not affiliated with GTNH, GT++, or GT5U. The jar contains none of their code; it calls their recipe API at runtime.
 
 ## Install
 
-- GTNH 1.7.10, Forge 10.13.4.1614
-- Requires GT5-Unofficial 5.09.54.265 (GT++ ships **inside** GT5U as modid `miscutils` — do not go looking for a separate GT++ jar)
-- Drop `lftrpricedrop-<version>.jar` into `mods/` and start the game once
-- Every load prints `[LFTR]` lines: one per change (36), plus three group summaries
+GTNH 1.7.10 with GT5-Unofficial 5.09.54.265.
 
-## What it changes (36 entries)
+Drop `lftrpricedrop-1.0.0.jar` into `mods/`.
 
-### A · Build costs, 13 entries
+On load the log gets a batch of `[LFTR]` lines, one per change, with three group summaries at the end. A missing line means that change matched nothing.
 
-Each variant copies the original recipe slot for slot and swaps only GT++'s single-use alloys for mainline materials of the same form and count. Control circuits, computer cubes, IC2 reactor plating, cables and hulls stay exactly as they were; if the original had two forms, the variant has the same two.
+## What it changes
 
-| Block | Form | Swapped | Kept |
+### Build costs, 13 blocks
+
+The original recipes stay; each gets an extra variant made from mainline materials. Only the alloy slots change. Control circuits, computer cubes, IC2 plating, cables and hulls stay as they were.
+
+| Block | Made in | Swapped | Kept |
 |---|---|---|---|
 | LFTR Controller | Crafting | Hastelloy-N double plate → Titanium double plate | LFTR control circuit, 12x Naquadah cable, GT Computer Cube, Thorium plate, IV hull |
 | Reactor Casing I | Crafting | Hastelloy-N double plate → Titanium double plate; Hastelloy-C276 frame → Stainless Steel frame | IC2 Heat Capacity Reactor Plating ×4 |
-| Reactor Casing II (Reactor Shield) | Crafting + Assembler, both | Hastelloy-C276 double plate → Stainless Steel double plate; Talonite gear → Tungstensteel gear | LV Field Generator |
+| Reactor Casing II (Reactor Shield) | Crafting + Assembler | Hastelloy-C276 double plate → Stainless Steel double plate; Talonite gear → Tungstensteel gear | LV Field Generator |
 | Reactor Processing Unit I | Crafting | Inconel 625 plate → Titanium plate; Hastelloy-N double plate → Titanium double plate | HV Field Generator, IV Robot Arm, IV Chemical Reactor |
 | Reactor Processing Unit II | Crafting | Pikyonium plate → Tungstensteel plate; HS188A double plate → Tungstensteel double plate | IV Field Generator, ZPM Robot Arm, Processing Unit I |
 | Cold Trap I | Crafting | Inconel 625 plate → Titanium plate; Hastelloy-X double plate → Tungstensteel double plate | IV hull, IV Robot Arm, Frost Proof Casing |
@@ -34,17 +37,17 @@ Each variant copies the original recipe slot for slot and swaps only GT++'s sing
 | Sparge Tower Controller | Assembly Line | HS188A gear and plate → Tungstensteel; Hastelloy-N double plate and screw → Titanium | Elite circuit, machines, wire, foil |
 | Fuel Refinery | Crafting | Stellite gear → Tungstensteel gear | Elite circuit, Dense Tungstensteel plate, GT Computer Cube, IV hull |
 | Fuel Refinery Internal Casing | Crafting | Incoloy-DS plate and gear → Stainless Steel; Staballoy giant pipe → Stainless Steel giant pipe | IV Super Tank |
-| Fuel Refinery Casing (Hastelloy-N Sealant) | Crafting + Assembler, both | Incoloy-MA956 plate → Stainless Steel plate; Hastelloy-N plate → Titanium plate; Hastelloy-C276 frame → Stainless Steel frame | — |
+| Fuel Refinery Casing (Hastelloy-N Sealant) | Crafting + Assembler | Incoloy-MA956 plate → Stainless Steel plate; Hastelloy-N plate → Titanium plate; Hastelloy-C276 frame → Stainless Steel frame | none |
 | Fuel Refinery Structural Casing | Crafting | Inconel 792 ring → Stainless Steel ring; Hastelloy-X gear → Tungstensteel gear; C276 frame → Stainless Steel frame | EV hull, Steel plate |
 
-### B · Hydrofluoric acid path, 6 entries
+### Hydrofluoric acid, 6 recipes
 
-3 added, 3 replaced. Uses GT++'s existing ratio: **1 mB Industrial Strength Hydrofluoric Acid = 2 mB Hydrofluoric Acid**.
+Three new recipes, three replacements. Uses GT++'s own ratio: 1 mB Industrial HF = 2 mB HF.
 
 | Recipe | Action | Change |
 |---|---|---|
 | Lithium Carbonate → Lithium Fluoride (Chemical Bath) | Add | Industrial HF 500 → HF 1000 |
-| Lithium Hydroxide → Lithium Fluoride (Chemical Reactor + Large Chemical Reactor) | Add | Industrial 500 → HF 1000 |
+| Lithium Hydroxide → Lithium Fluoride (Chemical Reactor, Large Chemical Reactor) | Add | Industrial 500 → HF 1000 |
 | U-233 + U-235 → Uranium Tetrafluoride (Mixer) | Add | Industrial 10000 → HF 20000 |
 | Ammonium Tetrafluoroberyllate → Beryllium Fluoride (Large Chemical Reactor) | Replace | byproduct Industrial 1000 → HF 2000 |
 | Fuel base (Industrial Blast Furnace) | Replace | inputs +2 empty cells; byproduct 2 Industrial HF cells → 4 HF cells |
@@ -52,9 +55,9 @@ Each variant copies the original recipe slot for slot and swaps only GT++'s sing
 
 The Dehydrator's Beryllium Fluoride recipe is untouched and still yields one Industrial HF cell.
 
-### C · Duration and voltage, 17 entries
+### Duration and voltage, 17 recipes
 
-Duration halved, EU/t divided by 4, inputs and outputs unchanged. The three LFTR burn recipes are out of scope — power output is untouched.
+Half the time, a quarter of the EU/t, same inputs and outputs. The three LFTR burn recipes are not included, so power output is unchanged.
 
 | Recipe | Machine | Before | After |
 |---|---|---|---|
@@ -78,27 +81,17 @@ Duration halved, EU/t divided by 4, inputs and outputs unchanged. The three LFTR
 
 ## Config
 
-`config/lftrpricedrop.cfg`:
+One option in `config/lftrpricedrop.cfg`. Set it to `false` and nothing is touched.
 
 ```
 B:enablePriceDrop=true
 ```
 
-Set it to `false` and nothing is touched; the log shows a single "config disabled" line.
+## Known issues
 
-## Why some entries add and others replace
+Targets are pinned to GT5U 5.09.54.265. After a GT++ update the ones that no longer match are skipped, the log records a miss, and the game loads normally.
 
-GT matches recipes on **inputs only**, tolerates extra inputs in the machine, and takes the first match. So:
-
-- A variant with **different inputs** can only be added — the two are told apart by the fluid, and the old line keeps working.
-- A variant that differs **only in byproducts** has identical inputs; the later one is unreachable, so it must replace the original. The cost: the two fuel-base Industrial HF recipes disappear.
-
-## Known limitations
-
-- Targets are pinned to GT5U 5.09.54.265. If GT++ changes a recipe, the log prints a "miss" line, that one change is skipped, and **the original recipe stays untouched — the game still loads**. Nothing crashes, nothing is deleted by mistake.
-- Rare exception: when one entry covers two recipe maps (B group's Lithium Hydroxide to Lithium Fluoride) or a block has two forms (Reactor Shield, Refinery Casing), a failure in the second half can leave the first half applied while the log still says miss. Known gap in 1.0.0, see AGENTS.md.
-- Verified in the dev loop (66 mods) only, not in the full 243-mod pack.
-- Multiblock structures are not modified; casing types and counts are unchanged.
+Tested in the dev environment (66 mods) only, not in a full 243-mod pack.
 
 ## License
 
