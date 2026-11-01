@@ -16,8 +16,6 @@ GTNH 2.9.0 (currently rc2) on Minecraft 1.7.10. Recipe targets are GT5-Unofficia
 
 Drop `lftrpricedrop-1.0.0.jar` into `mods/`.
 
-On load the log gets a batch of `[LFTR]` lines, one per change, with three group summaries at the end. A missing line means that change matched nothing.
-
 ## What it changes
 
 ### Build costs, 13 blocks
@@ -53,11 +51,9 @@ Three new recipes, three replacements. Uses GT++'s own ratio: 1 mB Industrial HF
 | Fuel base (Industrial Blast Furnace) | Replace | inputs +2 empty cells; byproduct 2 Industrial HF cells → 4 HF cells |
 | Fuel base (Chemical Plant) | Replace | byproduct Industrial 2000 → HF 4000 |
 
-The Dehydrator's Beryllium Fluoride recipe is untouched and still yields one Industrial HF cell.
-
 ### Duration and voltage, 17 recipes
 
-Half the time, a quarter of the EU/t, same inputs and outputs. The three LFTR burn recipes are not included, so power output is unchanged.
+Half the time, a quarter of the EU/t, same inputs and outputs.
 
 | Recipe | Machine | Before | After |
 |---|---|---|---|
@@ -86,12 +82,6 @@ One option in `config/lftrpricedrop.cfg`. Set it to `false` and nothing is touch
 ```
 B:enablePriceDrop=true
 ```
-
-## Known issues
-
-Targets are pinned to GT5U 5.09.54.265. After a GT++ update the ones that no longer match are skipped, the log records a miss, and the game loads normally.
-
-Tested in the dev environment (66 mods) only, not in a full 243-mod pack.
 
 ## License
 
