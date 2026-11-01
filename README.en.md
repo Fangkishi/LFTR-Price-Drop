@@ -4,11 +4,9 @@ The GT++ LFTR is expensive to build, its fuel chain goes through Industrial Stre
 
 Optional. It applies when installed and changes nothing when it is not.
 
-## Read this first
-
-Do not install this if you are running for Stargate. Stargate requires an unmodified balance, and this mod changes balance on purpose.
-
-Not affiliated with GTNH, GT++, or GT5U. The jar contains none of their code; it calls their recipe API at runtime.
+> ⚠️ **Not Stargate-compliant.** Stargate eligibility requires a run without balance changes; this mod deliberately alters build costs and processing speed. Do not install it if you are running for Stargate or plan to.
+>
+> Not affiliated with GTNH, GT++, or GT5U. The jar contains none of their code or assets; it only calls their recipe API at runtime.
 
 ## Install
 
