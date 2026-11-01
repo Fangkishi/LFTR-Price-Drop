@@ -12,7 +12,7 @@ Not affiliated with GTNH, GT++, or GT5U. The jar contains none of their code; it
 
 ## Install
 
-GTNH 1.7.10 with GT5-Unofficial 5.09.54.265.
+GTNH 2.9.0 (currently rc2) on Minecraft 1.7.10. Recipe targets are GT5-Unofficial 5.09.54.265.
 
 Drop `lftrpricedrop-1.0.0.jar` into `mods/`.
 

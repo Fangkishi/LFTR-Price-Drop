@@ -3,7 +3,7 @@
 	"modList": [{
 		"modid": "${modId}",
 		"name": "${modName}",
-		"description": "Optional GTNH 1.7.10 addon that rebalances the GT++ LFTR: mainline-material build costs, a hydrofluoric-acid-free fuel path, and faster fuel and blanket processing. Not Stargate-compliant.",
+		"description": "Optional addon for GTNH 2.9.0 (Minecraft 1.7.10) that rebalances the GT++ LFTR: mainline-material build costs, a hydrofluoric-acid-free fuel path, and faster fuel and blanket processing. Not Stargate-compliant.",
 		"version": "${modVersion}",
 		"mcversion": "${minecraftVersion}",
 		"url": "https://github.com/Fangkishi/LFTR-Price-Drop",

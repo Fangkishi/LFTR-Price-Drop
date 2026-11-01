@@ -12,7 +12,7 @@ GT++ 的 LFTR（液态氟钍反应堆）造价高，燃料线绕不开工业氢�
 
 ## 安装
 
-GTNH 1.7.10，需要 GT5-Unofficial 5.09.54.265。
+GTNH 2.9.0（当前是 rc2），Minecraft 1.7.10。配方目标是 GT5-Unofficial 5.09.54.265。
 
 把 `lftrpricedrop-1.0.0.jar` 放进 `mods/`。
 
